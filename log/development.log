@@ -3855,3 +3855,44 @@ Processing by PostsController#new as HTML
 Completed 200 OK in 65ms (Views: 62.7ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/authors/4" for 86.25.49.110 at 2019-11-03 17:18:13 +0000
+Cannot render console from 86.25.49.110! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering authors/show.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."author_id" = ?[0m  [["author_id", 4]]
+  Rendered authors/show.html.erb within layouts/application (55.3ms)
+Completed 200 OK in 265ms (Views: 219.7ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/authors/4/posts/new" for 86.25.49.110 at 2019-11-03 17:18:15 +0000
+Cannot render console from 86.25.49.110! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PostsController#new as HTML
+  Parameters: {"author_id"=>"4"}
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (20.6ms)
+  Rendered posts/new.html.erb within layouts/application (21.5ms)
+Completed 200 OK in 35ms (Views: 33.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/posts" for 86.25.49.110 at 2019-11-03 17:19:12 +0000
+Cannot render console from 86.25.49.110! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XzwW+9Y1cYMAz9vGn1jWVkyzJyFYod8KL8g9mbRiRjFQ26QegXuW5s/FvXIUnbqVaowghaKp4DHSM1YOmQntjA==", "post"=>{"author_id"=>"4", "title"=>"New blog post", "description"=>"eagaegagaegaegaegargarga"}, "commit"=>"Create Post"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "created_at", "updated_at", "author_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "New Blog Post"], ["description", "eagaegagaegaegaegargarga"], ["created_at", "2019-11-03 17:19:12.145336"], ["updated_at", "2019-11-03 17:19:12.145336"], ["author_id", 4]]
+  [1m[35m (5.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://165.227.141.103:38736/posts/17
+Completed 302 Found in 10ms (ActiveRecord: 6.0ms)
+
+
+Started GET "/posts/17" for 86.25.49.110 at 2019-11-03 17:19:12 +0000
+Cannot render console from 86.25.49.110! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered posts/show.html.erb within layouts/application (2.9ms)
